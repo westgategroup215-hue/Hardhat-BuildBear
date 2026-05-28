@@ -39,13 +39,76 @@ npm run createTestnet
 
 Once the Testnet is live, its RPC, Explorer and Faucet details are added to the `testnet.json` file
 
-> 4️⃣ To Deploy the `Greeter.sol` smart contract
+> ⚠️ To deploy to Ethereum mainnet, set these environment variables first:
+>
+> ```bash
+> export MAINNET_RPC_URL="https://mainnet.infura.io/v3/<your_key>"
+> export PRIVATE_KEY="0x..."
+> ```
+
+> 4️⃣ Create a purse wallet to receive tokens
+
+```bash
+npm run init-wallet
+```
+
+This creates a `wallet-config.json` file with your purse wallet address and private key. All deploy-and-mint scripts will send tokens to this wallet by default.
+
+> 5️⃣ To Deploy the `Greeter.sol` smart contract
 
 ```bash
 npx hardhat run scripts/deploy-greeter.js
 ```
 
-> 5️⃣ To Run the Test script `Greeter-Test.js`
+> 6️⃣ To deploy mainnet-style stable coins (USDC, USDT, USD)
+
+```bash
+npm run deploy-usdc-usdt-usd
+```
+
+> 7️⃣ To deploy and mint all three stable tokens (USDC, USDT, USD) in one step
+
+```bash
+npm run deploy-and-mint-stable -- <amount|max>
+```
+
+> 8️⃣ To deploy and mint USDC only
+
+```bash
+npm run deploy-and-mint-usdc -- <amount|max>
+```
+
+> 9️⃣ To deploy and mint USDT only
+
+```bash
+npm run deploy-and-mint-usdt -- <amount|max>
+```
+
+> 🔟 To deploy and mint USD only
+
+```bash
+npm run deploy-and-mint-usd -- <amount|max>
+```
+
+**To send to an optional recipient instead of your purse wallet:**
+
+```bash
+npm run deploy-and-mint-usdc -- 0xRecipientAddress <amount|max>
+```
+
+> 1️⃣1️⃣ To mint a specific amount of stable tokens to an existing contract
+
+```bash
+npm run mint-stable -- <CONTRACT_ADDRESS> [recipient] [amount]
+```
+
+> 1️⃣2️⃣ To mint the maximum possible amount and save run metadata
+
+```bash
+npm run mint-max-stable -- <CONTRACT_ADDRESS> [recipient] [amount|max]
+```
+
+> 1️⃣3️⃣ To Run the Test script `Greeter-Test.js`
 
 ```bash
 npx hardhat test

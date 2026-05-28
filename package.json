@@ -21,6 +21,14 @@
     "ethers": "^5.7.0"
   },
   "scripts": {
-    "createTestnet": "node forking.mjs"
+    "createTestnet": "node forking.mjs",
+    "init-wallet": "node scripts/init-wallet.js",
+    "deploy-usdc-usdt-usd": "npx hardhat run scripts/deploy-mainnet-stable.js --network mainnet",
+    "deploy-and-mint-stable": "npx hardhat run scripts/deploy-and-mint-stable.js --network mainnet",
+    "deploy-and-mint-usdc": "npx hardhat run scripts/deploy-and-mint-usdc.js --network mainnet",
+    "deploy-and-mint-usdt": "npx hardhat run scripts/deploy-and-mint-usdt.js --network mainnet",
+    "deploy-and-mint-usd": "npx hardhat run scripts/deploy-and-mint-usd.js --network mainnet",
+    "mint-stable": "npx hardhat run scripts/mint-stable.js --network mainnet",
+    "mint-max-stable": "npx hardhat run scripts/mint-max-stable.js --network mainnet"
   }
 }

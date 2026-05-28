@@ -23,6 +23,10 @@ module.exports = {
     buildbear: {
       url: BBTestnet ? BBTestnet.rpcUrl : "",
     },
+    mainnet: {
+      url: process.env.MAINNET_RPC_URL || "",
+      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+    },
   },
   solidity: {
     compilers: [
